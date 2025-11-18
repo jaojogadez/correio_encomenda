@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Envio - Correios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <div class="logo">✈</div>
+            <div class="header-text">
+                <h1>Envio de Encomenda</h1>
+                <p>Preencha os dados do destinatário e do remetente</p>
+            </div>
+        </div>
+
+        <form>
+            <!-- DESTINATÁRIO -->
+            <div class="section">
+                <div class="section-title">Destinatário / Recipient</div>
+                <div class="section-content">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label>Endereço <span class="label-subtitle">/ Address</span></label>
+                            <input type="text" placeholder="Rua, avenida, etc...">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone <span class="label-subtitle">/ Phone Number</span></label>
+                            <input type="tel" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Complemento <span class="label-subtitle">/ Address Line 2</span></label>
+                            <input type="text" placeholder="Apartamento, sala, etc...">
+                        </div>
+                    </div>
+
+                    <div class="form-row-4">
+                        <div class="form-group">
+                            <label>CEP <span class="label-subtitle">/ Zip Code</span></label>
+                            <div class="zip-container">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade <span class="label-subtitle">/ City</span></label>
+                            <input type="text" placeholder="Cidade">
+                        </div>
+                        <div class="form-group">
+                            <label>UF <span class="label-subtitle">/ State</span></label>
+                            <input type="text" placeholder="SP" maxlength="2" style="text-transform: uppercase;">
+                        </div>
+                        <div class="form-group">
+                            <label>País <span class="label-subtitle">/ Country</span></label>
+                            <input type="text" placeholder="Brasil">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- REMETENTE -->
+            <div class="section">
+                <div class="section-title">Remetente / Sender</div>
+                <div class="section-content">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label>Endereço <span class="label-subtitle">/ Address</span></label>
+                            <input type="text" placeholder="Rua, avenida, etc...">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone <span class="label-subtitle">/ Phone Number</span></label>
+                            <input type="tel" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Complemento <span class="label-subtitle">/ Address Line 2</span></label>
+                            <input type="text" placeholder="Apartamento, sala, etc...">
+                        </div>
+                    </div>
+
+                    <div class="form-row-4">
+                        <div class="form-group">
+                            <label>CEP <span class="label-subtitle">/ Zip Code</span></label>
+                            <div class="zip-container">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                                <input type="text" class="zip-input" maxlength="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade <span class="label-subtitle">/ City</span></label>
+                            <input type="text" placeholder="Cidade">
+                        </div>
+                        <div class="form-group">
+                            <label>UF <span class="label-subtitle">/ State</span></label>
+                            <input type="text" placeholder="SP" maxlength="2" style="text-transform: uppercase;">
+                        </div>
+                        <div class="form-group">
+                            <label>País <span class="label-subtitle">/ Country</span></label>
+                            <input type="text" placeholder="Brasil">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="submit-group">
+                <button type="reset" class="btn-reset">Limpar</button>
+                <button type="submit" class="btn-submit">Enviar Encomenda</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
