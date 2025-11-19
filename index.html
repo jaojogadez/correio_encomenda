@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Envio - Correios</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -12,58 +13,63 @@
             <div class="logo">✈</div>
             <div class="header-text">
                 <h1>Envio de Encomenda</h1>
-                <p>Preencha os dados do destinatário e do remetente</p>
+                <p>Preencha os dados do destinatário e do remetente.</p>
             </div>
         </div>
 
-        <form>
-            <!-- DESTINATÁRIO -->
+        <form id="envioForm">
             <div class="section">
                 <div class="section-title">Destinatário / Recipient</div>
                 <div class="section-content">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome Completo <span class="label-subtitle">/ Full Name</span></label>
+                            <input type="text" placeholder="Nome Completo" id="dest-nome" name="dest_nome" required>
+                        </div>
+                    </div>
                     <div class="form-row-2">
                         <div class="form-group">
                             <label>Endereço <span class="label-subtitle">/ Address</span></label>
-                            <input type="text" placeholder="Rua, avenida, etc...">
+                            <input type="text" placeholder="Rua, avenida, etc..." id="dest-endereco" name="dest_endereco" required>
                         </div>
                         <div class="form-group">
                             <label>Telefone <span class="label-subtitle">/ Phone Number</span></label>
-                            <input type="tel" placeholder="(XX) XXXXX-XXXX">
+                            <input type="tel" placeholder="(XX) XXXXX-XXXX" id="dest-telefone" name="dest_telefone" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Complemento <span class="label-subtitle">/ Address Line 2</span></label>
-                            <input type="text" placeholder="Apartamento, sala, etc...">
+                            <input type="text" placeholder="Apartamento, sala, etc..." id="dest-complemento" name="dest_complemento">
                         </div>
                     </div>
 
                     <div class="form-row-4">
                         <div class="form-group">
                             <label>CEP <span class="label-subtitle">/ Zip Code</span></label>
-                            <div class="zip-container">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
+                            <div class="zip-container" id="dest-cep-container">
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_1" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_2" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_3" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_4" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_5" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_6" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_7" required>
+                                <input type="text" class="zip-input" maxlength="1" name="dest_cep_8" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Cidade <span class="label-subtitle">/ City</span></label>
-                            <input type="text" placeholder="Cidade">
+                            <input type="text" placeholder="Cidade" id="dest-cidade" name="dest_cidade" required>
                         </div>
                         <div class="form-group">
                             <label>UF <span class="label-subtitle">/ State</span></label>
-                            <input type="text" placeholder="SP" maxlength="2" style="text-transform: uppercase;">
+                            <input type="text" placeholder="SP" maxlength="2" style="text-transform: uppercase;" id="dest-uf" name="dest_uf" required>
                         </div>
                         <div class="form-group">
                             <label>País <span class="label-subtitle">/ Country</span></label>
-                            <input type="text" placeholder="Brasil">
+                            <input type="text" placeholder="Brasil" id="dest-pais" name="dest_pais" required>
                         </div>
                     </div>
                 </div>
@@ -71,64 +77,69 @@
 
             <div class="divider"></div>
 
-            <!-- REMETENTE -->
             <div class="section">
                 <div class="section-title">Remetente / Sender</div>
                 <div class="section-content">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome Completo <span class="label-subtitle">/ Full Name</span></label>
+                            <input type="text" placeholder="Nome Completo" id="rem-nome" name="rem_nome" required value="Marcos Roberto de Oliveira">
+                        </div>
+                    </div>
                     <div class="form-row-2">
                         <div class="form-group">
                             <label>Endereço <span class="label-subtitle">/ Address</span></label>
-                            <input type="text" placeholder="Rua, avenida, etc...">
+                            <input type="text" placeholder="Rua, avenida, etc..." id="rem-endereco" name="rem_endereco" required>
                         </div>
                         <div class="form-group">
                             <label>Telefone <span class="label-subtitle">/ Phone Number</span></label>
-                            <input type="tel" placeholder="(XX) XXXXX-XXXX">
+                            <input type="tel" placeholder="(XX) XXXXX-XXXX" id="rem-telefone" name="rem_telefone" required value="14920002066">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label>Complemento <span class="label-subtitle">/ Address Line 2</span></label>
-                            <input type="text" placeholder="Apartamento, sala, etc...">
+                            <input type="text" placeholder="Apartamento, sala, etc..." id="rem-complemento" name="rem_complemento">
                         </div>
                     </div>
 
                     <div class="form-row-4">
                         <div class="form-group">
                             <label>CEP <span class="label-subtitle">/ Zip Code</span></label>
-                            <div class="zip-container">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
-                                <input type="text" class="zip-input" maxlength="1">
+                             <div class="zip-container" id="rem-cep-container">
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_1" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_2" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_3" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_4" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_5" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_6" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_7" required>
+                                <input type="text" class="zip-input" maxlength="1" name="rem_cep_8" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Cidade <span class="label-subtitle">/ City</span></label>
-                            <input type="text" placeholder="Cidade">
+                            <input type="text" placeholder="Cidade" id="rem-cidade" name="rem_cidade" required value="Marília">
                         </div>
                         <div class="form-group">
                             <label>UF <span class="label-subtitle">/ State</span></label>
-                            <input type="text" placeholder="SP" maxlength="2" style="text-transform: uppercase;">
+                            <input type="text" placeholder="SP" maxlength="2" style="text-transform: uppercase;" id="rem-uf" name="rem_uf" required value="sp">
                         </div>
                         <div class="form-group">
                             <label>País <span class="label-subtitle">/ Country</span></label>
-                            <input type="text" placeholder="Brasil">
+                            <input type="text" placeholder="Brasil" id="rem-pais" name="rem_pais" required value="Brasil">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Botões -->
             <div class="submit-group">
                 <button type="reset" class="btn-reset">Limpar</button>
                 <button type="submit" class="btn-submit">Enviar Encomenda</button>
             </div>
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
